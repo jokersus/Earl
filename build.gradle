@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '2.0.1'
+}
+
+mainClassName = 'Main'
+
+group 'com.jokersus.Earl'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+
+dependencies {
+    compile("com.google.code.gson:gson:2.8.1")
+    compile("com.sedmelluq:lavaplayer:1.2.42")
+    compile("joda-time:joda-time:2.9.9")
+    compile("net.dv8tion:JDA:3.6.0_371")
+    compile("org.apache.commons:commons-lang3:3.6")
+    compile("mysql:mysql-connector-java:5.1.34")
+}
+
+task stage {
+    dependsOn installDist
+}
